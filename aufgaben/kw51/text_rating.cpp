@@ -30,9 +30,36 @@ std::string getFileContents(const std::string &path)
  * @return true 
  * @return false 
  */
-bool isLetter(char &character)
+bool isValidChar(char &character)
 {
-	return isalpha(character);
+	return isalpha(character) || character == ' ';
+}
+
+/**
+ * Strip string.
+ * 
+ * Keep lowercase letters and spaces only.
+ * 
+ * @param str 
+ * @return std::string 
+ */
+std::string strip(std::string &str)
+{
+	std::string result;
+
+	for (char &character : str)
+	{
+		// Only store lowercase letters.
+		if (!isValidChar(character))
+		{
+			// Only add character if it is a letter.
+			continue;
+		}
+
+		result += tolower(character);
+	}
+
+	return result;
 }
 
 /**
@@ -63,11 +90,10 @@ std::vector<std::string> explode(std::string &str, char delimiter)
 			// Reset character.
 			element = "";
 		}
-		else if (isLetter(character))
+		else
 		{
 			// Add character to element if it does not match the given delimiter.
-			// Only add character if it is a letter.
-			element += tolower(character);
+			element += character;
 		}
 	}
 
@@ -134,8 +160,11 @@ int main()
 	// Read string from file path.
 	auto contents = getFileContents(path);
 
+	// Only lowercase letters.
+	auto stripped = strip(contents);
+
 	// Get words from file contents.
-	auto words = explode(contents, ' ');
+	auto words = explode(stripped, ' ');
 
 	// Get word frequency.
 	auto wordFrequency = countWords(words);
