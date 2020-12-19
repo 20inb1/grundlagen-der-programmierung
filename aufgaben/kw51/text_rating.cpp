@@ -115,7 +115,7 @@ int main()
 {
 	std::string path;
 
-	std::cout << "Enter the full path of the file" << std::endl;
+	std::cout << "Enter the relative path of the file:" << std::endl;
 	std::cin >> path;
 
 	// Read string from file path.
