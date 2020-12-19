@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <array>
 #include <vector>
 #include <string>
 #include <iterator>
@@ -116,7 +115,8 @@ int main()
 {
 	std::string path;
 
-	path = "foo.txt";
+	std::cout << "Enter the full path of the file" << std::endl;
+	std::cin >> path;
 
 	// Read string from file path.
 	auto contents = getFileContents(path);
