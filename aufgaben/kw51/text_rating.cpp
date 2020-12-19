@@ -67,7 +67,7 @@ std::vector<std::string> explode(std::string &str, char delimiter)
 		{
 			// Add character to element if it does not match the given delimiter.
 			// Only add character if it is a letter.
-			element += character;
+			element += tolower(character);
 		}
 	}
 
