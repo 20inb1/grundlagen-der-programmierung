@@ -82,12 +82,15 @@ std::map<std::string, int> countWords(const std::vector<std::string> &words)
 	{
 		std::string word = words.at(i);
 
+		// Determine if the word already exists.
 		if (frequencies.count(word))
 		{
+			// If word already in map: count +1
 			frequencies[word] += 1;
 		}
 		else
 		{
+			// If word does not exist: set to 1
 			frequencies[word] = 1;
 		}
 	}
