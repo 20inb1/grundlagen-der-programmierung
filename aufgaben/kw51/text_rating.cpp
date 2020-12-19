@@ -105,7 +105,7 @@ void printWordFrequencyHistorgram(std::map<std::string, int> wordFrequency)
 {
 	for (const auto &w : wordFrequency)
 	{
-		std::cout << w.first << '\t' << w.second << std::endl;
+		std::cout << w.first << ": " << w.second << std::endl;
 	}
 }
 
@@ -121,6 +121,9 @@ int main()
 	// Get words from file contents.
 	auto words = explode(contents, ' ');
 
+	// Get word frequency.
 	auto wordFrequency = countWords(words);
+
+	// Print word frequencies.
 	printWordFrequencyHistorgram(wordFrequency);
 }
