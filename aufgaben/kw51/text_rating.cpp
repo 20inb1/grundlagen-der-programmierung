@@ -160,7 +160,7 @@ int main()
 	// Read string from file path.
 	auto contents = getFileContents(path);
 
-	// Only lowercase letters.
+	// Only lowercase letters and spaces.
 	auto stripped = strip(contents);
 
 	// Get words from file contents.
