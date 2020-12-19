@@ -24,6 +24,18 @@ std::string getFileContents(const std::string &path)
 }
 
 /**
+ * Determine if a character is a letter.
+ * 
+ * @param character 
+ * @return true 
+ * @return false 
+ */
+bool isLetter(char &character)
+{
+	return isalpha(character);
+}
+
+/**
  * Explode a string by the given delimiter
  * 
  * @param s 
@@ -51,9 +63,10 @@ std::vector<std::string> explode(std::string &str, char delimiter)
 			// Reset character.
 			element = "";
 		}
-		else
+		else if (isLetter(character))
 		{
 			// Add character to element if it does not match the given delimiter.
+			// Only add character if it is not a token.
 			element += character;
 		}
 	}
